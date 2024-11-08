@@ -5,6 +5,10 @@ require("dotenv").config();
 
 const PORT = process.env.PORT || 3001;
 
+//cookieparser
+const cookieParser=require("cookie-parser");
+app.use(cookieParser());
+
 app.use(express.json());
 
 require("./config/database").connect()
@@ -18,6 +22,3 @@ app.listen(PORT,() => {
     console.log("Server Run at ",PORT);
 })
 
-app.get("/", (req,res) => {
-    res.send("<h1>Auth App</h1>")
-})
